@@ -1,9 +1,21 @@
+:root {
+    --calculatorHeight: 800px;
+    /*declaring css variables*/
+    --calculatorWidth: 600px;
+    /*variables do not have to be declared in root*/
+    --screenHeight: 350px;
+    /*but declaring in root ensures they can be accessed anywhere*/
+    --screenWidth: 580px;
+}
+
 #calculator {
     background-color: lightgray;
-    width: 600px;
-    height: 700px;
-    position: absolute;/* This section of code centers item vertically on page. */
-    top: 0;            /*Only works if element has set height*/
+    height: var(--calculatorHeight);
+    width: var(--calculatorWidth);
+    position: absolute;
+    /* This section of code centers item vertically on page. */
+    top: 0;
+    /*Only works if element has set height*/
     bottom: 0;
     left: 0;
     right: 0;
@@ -12,15 +24,17 @@
 
 #screen {
     background-color: black;
-    width: 580px;
-    height:300px;
+    height: var(--screenHeight);
+    width: var(--screenWidth);
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #buttonContainer {
-    height: 370px; /*Calculated from heights of calculator-screen-10px margin top, middle, bottom*/
+    height: calc(var(--calculatorHeight) - var(--screenHeight));
+    /*With current values, desired height is 420px, but fails the second a second operator is introduced*/
+    /*I think it's a syntax issue, height defaults to height of rows combined when more info introduced*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,12 +43,16 @@
 }
 
 .row {
-    height: 74px; /* 370 (total container height) / 5 (number of rows) */
-    width: 580px; /*same as screen width for consistency*/
+    height: 74px;
+    /* 370 (total container height) / 5 (number of rows) */
+    width: 580px;
+    /*same as screen width for consistency*/
     display: flex;
     justify-content: space-around;
 }
+
 button {
     height: auto;
-    width: 145px; /* row width / number of buttons in row*/
+    width: 145px;
+    /* row width / number of buttons in row*/
 }
