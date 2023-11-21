@@ -29,5 +29,12 @@
 }
 
 .row {
+    height: 74px; /* 370 (total container height) / 5 (number of rows) */
+    width: 580px; /*same as screen width for consistency*/
+    display: flex;
+    justify-content: space-around;
+}
+button {
     height: auto;
+    width: 145px; /* row width / number of buttons in row*/
 }
