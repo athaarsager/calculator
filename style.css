@@ -53,6 +53,7 @@
 
 button {
     height: auto;
-    width: 145px;
+    width: calc(var(--screenWidth) / 4);
     /* row width / number of buttons in row*/
+    margin: 5px;
 }
