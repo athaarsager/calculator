@@ -9,6 +9,7 @@
     --buttonContainerHeight: calc(var(--calculatorHeight) - var(--screenHeight) - 30px);
     /*need to include spaces on both sides of operator or doesn't work*/
     --buttonWidth: calc(var(--screenWidth) / 4);
+    --buttonColor: rgb(116, 156, 181);
 }
 
 body {
@@ -67,7 +68,6 @@ body {
 }
 
 button {
-    background-color: rgb(116, 156, 181);
     border: 1px solid black;
     height: auto;
     width: var(--buttonWidth);
