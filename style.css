@@ -32,9 +32,7 @@
 }
 
 #buttonContainer {
-    height: calc(var(--calculatorHeight) - var(--screenHeight));
-    /*With current values, desired height is 420px, but fails the second a second operator is introduced*/
-    /*I think it's a syntax issue, height defaults to height of rows combined when more info introduced*/
+    height: calc(var(--calculatorHeight) - var(--screenHeight) - 30px);/*need to include spaces on both sides of operator or doesn't work*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,9 +41,9 @@
 }
 
 .row {
-    height: 74px;
+    /*height: 74px;*/
     /* 370 (total container height) / 5 (number of rows) */
-    width: 580px;
+    /*width: 580px;*/
     /*same as screen width for consistency*/
     display: flex;
     justify-content: space-around;
