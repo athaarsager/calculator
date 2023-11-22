@@ -1,6 +1,19 @@
 let firstNumber;
 let secondNumber;
 let operator;
+let displayValue;
+
+const screenText = document.querySelector("#screenText");
+let numberButtons = document.querySelectorAll(".numberButton");
+numberButtons = Array.from(numberButtons);
+
+for (let numberButton of numberButtons) {
+
+    numberButton.addEventListener("click", () => {
+        screenText.textContent = numberButton.textContent;
+        console.log("I was clicked!");
+    })
+}
 
 function addNumbers(num1, num2) {
     return num1 + num2;

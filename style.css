@@ -42,8 +42,8 @@ body {
     margin-right: auto;
 }
 
-#numberText {
-    color: rgb(228, 218, 218);/*rgb(248, 84, 84);*/
+#screenText {
+    color: rgb(228, 218, 218);
     font-size: 72px;
     margin-right: 10px;
 }
