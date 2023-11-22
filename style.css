@@ -6,6 +6,8 @@
     --screenHeight: 350px;
     /*but declaring in root ensures they can be accessed anywhere*/
     --screenWidth: 580px;
+    --buttonContainerHeight: calc(var(--calculatorHeight) - var(--screenHeight) - 30px);
+    /*need to include spaces on both sides of operator or doesn't work*/
 }
 
 #calculator {
@@ -32,7 +34,7 @@
 }
 
 #buttonContainer {
-    height: calc(var(--calculatorHeight) - var(--screenHeight) - 30px);/*need to include spaces on both sides of operator or doesn't work*/
+    height: var(--buttonContainerHeight);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,9 +43,9 @@
 }
 
 .row {
-    /*height: 74px;*/
-    /* 370 (total container height) / 5 (number of rows) */
-    /*width: 580px;*/
+    height: calc(var(--buttonContainerHeight) / 5);
+    /*This one did not work when I specified the unit after 5...*/
+    width: var(--screenWidth);
     /*same as screen width for consistency*/
     display: flex;
     justify-content: space-around;
