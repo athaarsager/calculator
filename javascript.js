@@ -3,6 +3,16 @@ let secondNumber;
 let operator;
 let displayValue;
 
+let buttons = document.querySelectorAll("button");
+buttons = Array.from(buttons);
+
+for (let button of buttons) {
+    button.addEventListener("click", () => {
+        button.style.backgroundColor = "rgb(255, 255, 255)";
+        console.log("I was clicked!");
+    })
+}
+
 const screenText = document.querySelector("#screenText");
 let numberButtons = document.querySelectorAll(".numberButton");
 numberButtons = Array.from(numberButtons);
