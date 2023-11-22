@@ -8,6 +8,7 @@
     --screenWidth: 580px;
     --buttonContainerHeight: calc(var(--calculatorHeight) - var(--screenHeight) - 30px);
     /*need to include spaces on both sides of operator or doesn't work*/
+    --buttonWidth: calc(var(--screenWidth) / 4);
 }
 
 #calculator {
@@ -53,7 +54,15 @@
 
 button {
     height: auto;
-    width: calc(var(--screenWidth) / 4);
+    width: var(--buttonWidth);
     /* row width / number of buttons in row*/
     margin: 5px;
+}
+
+#clearButton {
+    width: calc(var(--buttonWidth) * 2 + 10px);
+}
+
+#enterButton {
+    width: calc(var(--buttonWidth) * 2 + 10px);
 }
