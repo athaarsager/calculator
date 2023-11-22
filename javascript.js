@@ -12,7 +12,13 @@ for (let button of buttons) {
         button.style.backgroundColor = darkenHue(toHSL(splitRGB(button.style.backgroundColor)), 10);
     });
     button.addEventListener("mouseup", () => {
-        button.style.backgroundColor = "rgb(116, 156, 181)"//can't use css variable here either. split RGB can't read it.
+        button.style.backgroundColor = darkenHue(toHSL(splitRGB(button.style.backgroundColor)), -10);
+    });
+    button.addEventListener("mouseover", () => {
+        button.style.backgroundColor = darkenHue(toHSL(splitRGB(button.style.backgroundColor)), -5);
+    });
+    button.addEventListener("mouseout", () => {
+        button.style.backgroundColor = "rgb(116, 156,  181)"; //can't use css variable here either. split RGB can't read it.
     });
 }
 
