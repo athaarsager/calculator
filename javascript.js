@@ -7,7 +7,17 @@ let buttons = document.querySelectorAll("button");
 buttons = Array.from(buttons);
 
 for (let button of buttons) {
+
     button.style.backgroundColor = "rgb(116, 156, 181)";//have to declare in-line, otherwise doesn't read css prop.
+    //below does not work in loop. loop just executes it immediately without waiting for event listener
+    /*button.addEventListener("mousedown", changeButtonColor(button, 10));
+
+    button.addEventListener("mouseup", changeButtonColor(button, -10));
+
+    button.addEventListener("mouseover", changeButtonColor(button, -5));
+
+    button.addEventListener("mouseout", changeButtonColor(button, 5)); */
+    
     button.addEventListener("mousedown", () => { //can set to variable, but split RGB can't read variable
         button.style.backgroundColor = darkenHue(toHSL(splitRGB(button.style.backgroundColor)), 10);
     });
@@ -94,4 +104,9 @@ function darkenHue(color, percent) {
     color[2] = color[2] - percent;
 
     return `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
+}
+
+function changeButtonColor(element, percent) {
+    element.style.backgroundColor = darkenHue(toHSL(splitRGB(element.style.backgroundColor)), percent);
+    console.log("color changed!");
 }
