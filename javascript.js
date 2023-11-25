@@ -3,24 +3,28 @@ let secondNumber;
 let operator;
 let displayValue;
 
+
 let buttons = document.querySelectorAll("button");
 buttons = Array.from(buttons);//This may no longer be needed since I moved hover to css
 
 const screenText = document.querySelector("#screenText");
+
 let numberButtons = document.querySelectorAll(".numberButton");
 numberButtons = Array.from(numberButtons);
 
-for (let numberButton of numberButtons) {
+for (const numberButton of numberButtons) {
 
     numberButton.addEventListener("click", () => {
         screenText.textContent = numberButton.textContent;
+        displayValue = screenText.textContent;
     });
 }
 
-let clearButton = document.querySelector("#clearButton");
+const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
-    screenText.textContent = "0";
-})
+    screenText.textContent = "0";//Remember to add more later
+    displayValue = screenText.textContent;
+});
 
 function addNumbers(num1, num2) {
     return num1 + num2;
