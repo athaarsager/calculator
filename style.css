@@ -68,6 +68,7 @@ body {
 }
 
 button {
+    background-color: rgb(116, 156, 181);
     border: 1px solid black;
     height: auto;
     width: var(--buttonWidth);
@@ -75,9 +76,12 @@ button {
     margin: 5px;
 }
 
-.button:hover {
+button:hover {
+    background-color: hsl(203.07692307692307, 30.516431924882635%, 63.235294117647065%);
+}
+
+button:active {
     background-color: hsl(203.07692307692307, 30.516431924882635%, 48.235294117647065%);
-    color: rgb(116, 156, 181);
 }
 
 #clearButton {

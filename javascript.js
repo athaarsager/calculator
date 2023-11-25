@@ -43,4 +43,3 @@ function operate(operator, firstNumber, secondNumber) {
     //run the selected function
     //firstNumber, secondNumber, and operator as inputs to this function?
 }
-
