@@ -4,7 +4,7 @@ let operator;
 let displayValue;
 
 let buttons = document.querySelectorAll("button");
-buttons = Array.from(buttons);
+buttons = Array.from(buttons);//This may no longer be needed since I moved hover to css
 
 const screenText = document.querySelector("#screenText");
 let numberButtons = document.querySelectorAll(".numberButton");
@@ -16,6 +16,11 @@ for (let numberButton of numberButtons) {
         screenText.textContent = numberButton.textContent;
     });
 }
+
+let clearButton = document.querySelector("#clearButton");
+clearButton.addEventListener("click", () => {
+    screenText.textContent = "0";
+})
 
 function addNumbers(num1, num2) {
     return num1 + num2;
