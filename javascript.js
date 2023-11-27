@@ -104,7 +104,11 @@ function multiplyNumbers(num1, num2) {
 }
 
 function divideNumbers(num1, num2) {
-    return num1 / num2;
+    if (num2 === 0) {
+        return "INAPRIOPRIATE!"
+    } else {
+        return num1 / num2;
+    }
 }
 
 function operate(operation, firstNum, secondNum) {
