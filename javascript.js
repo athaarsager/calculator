@@ -21,11 +21,11 @@ for (const numberButton of numberButtons) {
             newNumPressed = true;
             clearText = false;
         } else {
-            if(screenText.textContent.length === 13) {
+            if (screenText.textContent.length === 13) {
                 return;
             }
             screenText.textContent += numberButton.textContent;
-        } 
+        }
     });
 }
 
@@ -65,9 +65,24 @@ equalsButton.addEventListener("click", () => {
 
 
 });
+//need to round number to max string length - integerlength (aka Math.floor?)
+//maybe convert numbers higher than max string length to exponential notation?
+
+function roundNumber(value, decimals) {
+    return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
+}//e + decimals = 10 to the power of decimals
+//function rounds the large number
+//e- reverses the hugeness of the first number
+//"Number" converts everything back to number
 
 function addNumbers(num1, num2) {
-    return num1 + num2;
+    let result = num1 + num2;
+    if (result.toString().length > 13 & result < 9999999999999) {
+        result = roundNumber(result, (13 - Math.floor(result).toString.length));
+        return result;
+    } else {
+        return result;
+    }
 }
 
 function subtractNumbers(num1, num2) {
