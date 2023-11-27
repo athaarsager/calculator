@@ -1,11 +1,6 @@
-let firstNumber;
 let secondNumber;
 let operator;
 let displayValue;
-
-
-let buttons = document.querySelectorAll("button");
-buttons = Array.from(buttons);//This may no longer be needed since I moved hover to css
 
 const screenText = document.querySelector("#screenText");
 
@@ -17,7 +12,11 @@ for (const numberButton of numberButtons) {
     numberButton.addEventListener("click", () => {
         if (screenText.textContent === "0") {
             screenText.textContent = numberButton.textContent;
-        } else {
+        } else if(screenText.textContent.slice(-1) === "+" || screenText.textContent.slice(-1) === "-" ||
+        screenText.textContent.slice(-1) === "x" || screenText.textContent.slice(-1) === "/") {
+            screenText.textContent = numberButton.textContent;
+        } 
+        else {
             screenText.textContent += numberButton.textContent;
             displayValue = screenText.textContent;
         }
@@ -26,16 +25,29 @@ for (const numberButton of numberButtons) {
 
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
-    screenText.textContent = "0";//Remember to add more later
+    screenText.textContent = "0";//Remember to add more later for clearing memory of operation
     displayValue = screenText.textContent;
 });
+
+const plusButton = document.querySelector("#plusButton");
+plusButton.addEventListener("click", () => {
+    screenText.textContent += "+";
+    const firstNumber = parseFloat(screenText.textContent);
+    let operator = "+";
+});
+
+const equalsButton = document.querySelector("#equalsButton");
+equalsButton.addEventListener("click", () => {
+
+})
 
 //display one number and one operator at a time. Don't need number to blink.
 //will need to edit numberbutton event listener function to make this work... 
 //...or build it into operator event listener function
 //write "when plus sign pressed"
 //function updates display to add plus sign to right of number
-//When equals sign pressed, perform operation based on operator sign
+//when plus sign pressed, first number is stored in variable
+//When equals sign pressed, store second number in varaible and perform operation based on operator sign
 //Need to store each number in variable, or will operate function remember them?
 
 function addNumbers(num1, num2) {
@@ -54,7 +66,7 @@ function divideNumbers(num1, num2) {
     return num1 / num2;
 }
 
-function operate(operator, firstNumber, secondNumber) {
+function operate(operator, firstNum, secondNum) {
     //change value of operator based on clicked button
     //run the selected function
     //firstNumber, secondNumber, and operator as inputs to this function?

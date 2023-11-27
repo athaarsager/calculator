@@ -89,6 +89,6 @@ button:active {
     /*does not work with all numbers having units and does not work with no numbers having units*/
 }
 
-#enterButton {
+#equalsButton {
     width: calc(var(--buttonWidth) * 2 + 10px);
 }
