@@ -1,3 +1,4 @@
+let firstNumber;
 let secondNumber;
 let operator;
 let displayValue;
@@ -12,10 +13,10 @@ for (const numberButton of numberButtons) {
     numberButton.addEventListener("click", () => {
         if (screenText.textContent === "0") {
             screenText.textContent = numberButton.textContent;
-        } else if(screenText.textContent.slice(-1) === "+" || screenText.textContent.slice(-1) === "-" ||
-        screenText.textContent.slice(-1) === "x" || screenText.textContent.slice(-1) === "/") {
+        } else if (screenText.textContent.slice(-1) === "+" || screenText.textContent.slice(-1) === "-" ||
+            screenText.textContent.slice(-1) === "x" || screenText.textContent.slice(-1) === "/") {
             screenText.textContent = numberButton.textContent;
-        } 
+        }
         else {
             screenText.textContent += numberButton.textContent;
             displayValue = screenText.textContent;
@@ -32,12 +33,14 @@ clearButton.addEventListener("click", () => {
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", () => {
     screenText.textContent += "+";
-    const firstNumber = parseFloat(screenText.textContent);
-    let operator = "+";
+    firstNumber = parseFloat(screenText.textContent);
+    operator = "+";
 });
 
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
+    secondNumber = parseFloat(screenText.textContent);
+    operate(operator, firstNumber, secondNumber)
 
 })
 
@@ -66,7 +69,16 @@ function divideNumbers(num1, num2) {
     return num1 / num2;
 }
 
-function operate(operator, firstNum, secondNum) {
+function operate(operation, firstNum, secondNum) {
+    switch (operation) {
+        case "+": screenText.textContent = addNumbers(firstNum, secondNum);
+            break;
+        case "-": screenText.textContent = subtractNumbers(firstNum, secondNum);
+            break;
+        case "x": screenText.textContent = multiplyNumbers(firstNum, secondNum);
+            break;
+        case "/": screenText.textContent = divideNumbers(firstNum, secondNumb);
+    }
     //change value of operator based on clicked button
     //run the selected function
     //firstNumber, secondNumber, and operator as inputs to this function?
