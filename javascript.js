@@ -1,7 +1,6 @@
 let firstNumber;
 let secondNumber;
 let operator;
-let displayValue;
 
 const screenText = document.querySelector("#screenText");
 
@@ -19,7 +18,6 @@ for (const numberButton of numberButtons) {
         }
         else {
             screenText.textContent += numberButton.textContent;
-            displayValue = screenText.textContent;
         }
     });
 }
