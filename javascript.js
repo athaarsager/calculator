@@ -15,8 +15,12 @@ numberButtons = Array.from(numberButtons);
 for (const numberButton of numberButtons) {
 
     numberButton.addEventListener("click", () => {
-        screenText.textContent = numberButton.textContent;
-        displayValue = screenText.textContent;
+        if (screenText.textContent === "0") {
+            screenText.textContent = numberButton.textContent;
+        } else {
+            screenText.textContent += numberButton.textContent;
+            displayValue = screenText.textContent;
+        }
     });
 }
 
@@ -25,6 +29,14 @@ clearButton.addEventListener("click", () => {
     screenText.textContent = "0";//Remember to add more later
     displayValue = screenText.textContent;
 });
+
+//display one number and one operator at a time. Don't need number to blink.
+//will need to edit numberbutton event listener function to make this work... 
+//...or build it into operator event listener function
+//write "when plus sign pressed"
+//function updates display to add plus sign to right of number
+//When equals sign pressed, perform operation based on operator sign
+//Need to store each number in variable, or will operate function remember them?
 
 function addNumbers(num1, num2) {
     return num1 + num2;
