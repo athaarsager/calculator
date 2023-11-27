@@ -2,7 +2,7 @@ let firstNumber = 0;
 let secondNumber = 0;
 let operator;
 let operatorPressed = false;
-let numPressed = false;
+let newNumPressed = false;
 let clearText = false;
 
 const screenText = document.querySelector("#screenText");
@@ -18,7 +18,7 @@ for (const numberButton of numberButtons) {
             screenText.textContent = numberButton.textContent;
         } else if (clearText) {
             screenText.textContent = numberButton.textContent;
-            numPressed = true;
+            newNumPressed = true;
             clearText = false;
         } else {
             screenText.textContent += numberButton.textContent;
@@ -32,7 +32,7 @@ clearButton.addEventListener("click", () => {
     firstNumber = 0;
     secondNumber = 0;
     operatorPressed = false;
-    numPressed = false;
+    newNumPressed = false;
     operationDone = false;
     clearText = false;
 });
@@ -52,7 +52,7 @@ plusButton.addEventListener("click", () => {
 
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
-    if (operatorPressed === true && numPressed === false) {
+    if (operatorPressed === true && newNumPressed === false) {
         screenText.textContent = firstNumber;
         operatorPressed = false;
         return;
@@ -82,7 +82,7 @@ function divideNumbers(num1, num2) {
 function operate(operation, firstNum, secondNum) {
 
     operatorPressed = false;
-    numPressed = false;
+    newNumPressed = false;
 
     switch (operation) {
         case "+": screenText.textContent = addNumbers(firstNum, secondNum);
