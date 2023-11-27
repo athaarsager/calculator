@@ -21,6 +21,9 @@ for (const numberButton of numberButtons) {
             newNumPressed = true;
             clearText = false;
         } else {
+            if(screenText.textContent.length === 13) {
+                return;
+            }
             screenText.textContent += numberButton.textContent;
         } 
     });
