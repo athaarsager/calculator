@@ -1,9 +1,12 @@
-let firstNumber;
-let secondNumber;
+let firstNumber = 0;
+let secondNumber = 0;
 let operator;
 let operatorPressed = false;
+let numPressed = false;
+let operationDone = false;
 
 const screenText = document.querySelector("#screenText");
+//14 max character count without decimal
 
 let numberButtons = document.querySelectorAll(".numberButton");
 numberButtons = Array.from(numberButtons);
@@ -13,11 +16,13 @@ for (const numberButton of numberButtons) {
     numberButton.addEventListener("click", () => {
         if (screenText.textContent === "0") {
             screenText.textContent = numberButton.textContent;
-        } else if (screenText.textContent.slice(-1) === "+" || screenText.textContent.slice(-1) === "-" ||
-            screenText.textContent.slice(-1) === "x" || screenText.textContent.slice(-1) === "/") {
+        } else if (operatorPressed) {
             screenText.textContent = numberButton.textContent;
-        }
-        else {
+            numPressed = true;
+        } else if (operationDone) {
+            screenText.textContent = numberButton.textContent;
+            operationDone = false;
+        } else {
             screenText.textContent += numberButton.textContent;
         }
     });
@@ -25,40 +30,35 @@ for (const numberButton of numberButtons) {
 
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
-    screenText.textContent = "0";//Remember to add more later for clearing memory of operation
+    screenText.textContent = "0";
+    firstNumber = 0;
+    secondNumber = 0;
 });
 
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", () => {
     if (operatorPressed) {
         secondNumber = parseFloat(screenText.textContent);
-        //debugger;
         operate(operator, firstNumber, secondNumber);
-    } 
+    }
     screenText.textContent += "+";
     firstNumber = parseFloat(screenText.textContent);
     operator = "+";
     operatorPressed = true;
-    
-    //set incrementing variable to execute multiple additions?
-    //or 
 });
 
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
+    if (operatorPressed === true && numPressed === false) {
+        screenText.textContent = firstNumber;
+        operatorPressed = false;
+        return;
+    }
     secondNumber = parseFloat(screenText.textContent);
     operate(operator, firstNumber, secondNumber)
 
-})
 
-//display one number and one operator at a time. Don't need number to blink.
-//will need to edit numberbutton event listener function to make this work... 
-//...or build it into operator event listener function
-//write "when plus sign pressed"
-//function updates display to add plus sign to right of number
-//when plus sign pressed, first number is stored in variable
-//When equals sign pressed, store second number in varaible and perform operation based on operator sign
-//Need to store each number in variable, or will operate function remember them?
+});
 
 function addNumbers(num1, num2) {
     return num1 + num2;
@@ -79,6 +79,7 @@ function divideNumbers(num1, num2) {
 function operate(operation, firstNum, secondNum) {
 
     operatorPressed = false;
+    numPressed = false;
 
     switch (operation) {
         case "+": screenText.textContent = addNumbers(firstNum, secondNum);
@@ -89,7 +90,8 @@ function operate(operation, firstNum, secondNum) {
             break;
         case "/": screenText.textContent = divideNumbers(firstNum, secondNum);
     }
-    //change value of operator based on clicked button
-    //run the selected function
-    //firstNumber, secondNumber, and operator as inputs to this function?
+
+    operationDone = true;
+    firstNumber = 0;
+    secondNumber = 0;
 }
