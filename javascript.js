@@ -41,7 +41,8 @@ clearButton.addEventListener("click", () => {
 });
 
 const plusButton = document.querySelector("#plusButton");
-plusButton.addEventListener("click", () => {
+plusButton.addEventListener("click", beginOperation);
+/*plusButton.addEventListener("click", () => {
     if (operatorPressed) {
         secondNumber = parseFloat(screenText.textContent);
         operate(operator, firstNumber, secondNumber);
@@ -51,7 +52,10 @@ plusButton.addEventListener("click", () => {
     operator = "+";
     operatorPressed = true;
     clearText = true;
-});
+});*/
+
+const minusButton = document.querySelector("#minusButton");
+
 
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
@@ -109,6 +113,18 @@ function divideNumbers(num1, num2) {
     } else {
         return num1 / num2;
     }
+}
+
+function beginOperation(e) {
+    if (operatorPressed) {
+        secondNumber = parseFloat(screenText.textContent);
+        operate(operator, firstNumber, secondNumber);
+    }
+    screenText.textContent += e.target.textContent;
+    firstNumber = parseFloat(screenText.textContent);
+    operator = e.target.textContent;
+    operatorPressed = true;
+    clearText = true;
 }
 
 function operate(operation, firstNum, secondNum) {
