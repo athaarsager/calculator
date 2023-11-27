@@ -3,7 +3,7 @@ let secondNumber = 0;
 let operator;
 let operatorPressed = false;
 let numPressed = false;
-let operationDone = false;
+let clearText = false;
 
 const screenText = document.querySelector("#screenText");
 //14 max character count without decimal
@@ -16,15 +16,13 @@ for (const numberButton of numberButtons) {
     numberButton.addEventListener("click", () => {
         if (screenText.textContent === "0") {
             screenText.textContent = numberButton.textContent;
-        } else if (operatorPressed) {
+        } else if (clearText) {
             screenText.textContent = numberButton.textContent;
             numPressed = true;
-        } else if (operationDone) {
-            screenText.textContent = numberButton.textContent;
-            operationDone = false;
+            clearText = false;
         } else {
             screenText.textContent += numberButton.textContent;
-        }
+        } 
     });
 }
 
@@ -33,6 +31,10 @@ clearButton.addEventListener("click", () => {
     screenText.textContent = "0";
     firstNumber = 0;
     secondNumber = 0;
+    operatorPressed = false;
+    numPressed = false;
+    operationDone = false;
+    clearText = false;
 });
 
 const plusButton = document.querySelector("#plusButton");
@@ -45,6 +47,7 @@ plusButton.addEventListener("click", () => {
     firstNumber = parseFloat(screenText.textContent);
     operator = "+";
     operatorPressed = true;
+    clearText = true;
 });
 
 const equalsButton = document.querySelector("#equalsButton");
@@ -91,7 +94,7 @@ function operate(operation, firstNum, secondNum) {
         case "/": screenText.textContent = divideNumbers(firstNum, secondNum);
     }
 
-    operationDone = true;
+    clearText = true;
     firstNumber = 0;
     secondNumber = 0;
 }
