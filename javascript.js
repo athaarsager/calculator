@@ -77,7 +77,7 @@ function operate(operation, firstNum, secondNum) {
             break;
         case "x": screenText.textContent = multiplyNumbers(firstNum, secondNum);
             break;
-        case "/": screenText.textContent = divideNumbers(firstNum, secondNumb);
+        case "/": screenText.textContent = divideNumbers(firstNum, secondNum);
     }
     //change value of operator based on clicked button
     //run the selected function
