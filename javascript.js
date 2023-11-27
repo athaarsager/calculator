@@ -1,6 +1,7 @@
 let firstNumber;
 let secondNumber;
 let operator;
+let operatorPressed = false;
 
 const screenText = document.querySelector("#screenText");
 
@@ -29,9 +30,18 @@ clearButton.addEventListener("click", () => {
 
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", () => {
+    if (operatorPressed) {
+        secondNumber = parseFloat(screenText.textContent);
+        //debugger;
+        operate(operator, firstNumber, secondNumber);
+    } 
     screenText.textContent += "+";
     firstNumber = parseFloat(screenText.textContent);
     operator = "+";
+    operatorPressed = true;
+    
+    //set incrementing variable to execute multiple additions?
+    //or 
 });
 
 const equalsButton = document.querySelector("#equalsButton");
@@ -67,6 +77,9 @@ function divideNumbers(num1, num2) {
 }
 
 function operate(operation, firstNum, secondNum) {
+
+    operatorPressed = false;
+
     switch (operation) {
         case "+": screenText.textContent = addNumbers(firstNum, secondNum);
             break;
