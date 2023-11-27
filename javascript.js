@@ -91,7 +91,16 @@ function subtractNumbers(num1, num2) {
 }
 
 function multiplyNumbers(num1, num2) {
-    return num1 * num2;
+    let result = num1 * num2;
+    if (result.toString().length > 13 && result < 9999999999999) {
+        result = roundNumber(result, (13 - Math.floor(result).toString.length));
+        return result;
+    } else if (result > 9999999999999) {
+        result = result.toExponential(8)//this is the max that sits comfortably right now
+        return result;
+    } else {
+        return result;
+    }
 }
 
 function divideNumbers(num1, num2) {
