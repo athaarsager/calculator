@@ -25,7 +25,6 @@ for (const numberButton of numberButtons) {
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
     screenText.textContent = "0";//Remember to add more later for clearing memory of operation
-    displayValue = screenText.textContent;
 });
 
 const plusButton = document.querySelector("#plusButton");
