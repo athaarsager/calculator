@@ -65,8 +65,6 @@ equalsButton.addEventListener("click", () => {
 
 
 });
-//need to round number to max string length - integerlength (aka Math.floor?)
-//maybe convert numbers higher than max string length to exponential notation?
 
 function roundNumber(value, decimals) {
     return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
