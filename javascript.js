@@ -55,7 +55,7 @@ plusButton.addEventListener("click", beginOperation);
 });*/
 
 const minusButton = document.querySelector("#minusButton");
-
+minusButton.addEventListener("click", beginOperation);
 
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
@@ -80,7 +80,7 @@ function roundNumber(value, decimals) {
 function addNumbers(num1, num2) {
     let result = num1 + num2;
     if (result.toString().length > 13 && result < 9999999999999) {
-        result = roundNumber(result, (13 - Math.floor(result).toString.length));
+        result = roundNumber(result, (13 - Math.floor(result).toString().length));
         return result;
     } else if (result > 9999999999999) {
         result = result.toExponential(8)//this is the max that sits comfortably right now
@@ -89,15 +89,20 @@ function addNumbers(num1, num2) {
         return result;
     }
 }
-
 function subtractNumbers(num1, num2) {
-    return num1 - num2;
+    let result = num1 - num2;
+    if(result.toString().length > 13) {
+        result = roundNumber(result, (13 - Math.floor(result).toString().length));
+        return result;
+    } else {
+        return result;
+    }
 }
 
 function multiplyNumbers(num1, num2) {
     let result = num1 * num2;
     if (result.toString().length > 13 && result < 9999999999999) {
-        result = roundNumber(result, (13 - Math.floor(result).toString.length));
+        result = roundNumber(result, (13 - Math.floor(result).toString().length));
         return result;
     } else if (result > 9999999999999) {
         result = result.toExponential(8)//this is the max that sits comfortably right now
