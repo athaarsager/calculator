@@ -39,10 +39,12 @@ signButton.addEventListener("click", () => {
     let negative = "-";
     if (screenText.textContent.charAt(0) === "-") {
         screenText.textContent = screenText.textContent.substring(1);
+    } else if (screenText.textContent === "0") {
+        screenText.textContent = negative;
     } else {
         screenText.textContent = negative.concat(screenText.textContent);
     }
-})
+});
 
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
