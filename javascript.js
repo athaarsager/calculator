@@ -16,6 +16,9 @@ for (const numberButton of numberButtons) {
     numberButton.addEventListener("click", () => {
         if (screenText.textContent === "0") {
             screenText.textContent = numberButton.textContent;
+            if (screenText.textContent === ".") {
+                screenText.textContent = "0.";
+            }
         } else if (clearText) {
             screenText.textContent = numberButton.textContent;
             newNumPressed = true;
@@ -42,17 +45,6 @@ clearButton.addEventListener("click", () => {
 
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", beginOperation);
-/*plusButton.addEventListener("click", () => {
-    if (operatorPressed) {
-        secondNumber = parseFloat(screenText.textContent);
-        operate(operator, firstNumber, secondNumber);
-    }
-    screenText.textContent += "+";
-    firstNumber = parseFloat(screenText.textContent);
-    operator = "+";
-    operatorPressed = true;
-    clearText = true;
-});*/
 
 const minusButton = document.querySelector("#minusButton");
 minusButton.addEventListener("click", beginOperation);
@@ -91,7 +83,7 @@ function addNumbers(num1, num2) {
 }
 function subtractNumbers(num1, num2) {
     let result = num1 - num2;
-    if(result.toString().length > 13) {
+    if (result.toString().length > 13) {
         result = roundNumber(result, (13 - Math.floor(result).toString().length));
         return result;
     } else {
