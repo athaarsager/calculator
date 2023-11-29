@@ -25,8 +25,11 @@ backspace.addEventListener("click", () => {
     let lastIndex = currentNumber.length - 1;
     if (currentNumber.charAt(lastIndex) === "+" || currentNumber.charAt(lastIndex) === "-" ||
         currentNumber.charAt(lastIndex) === "/" || currentNumber.charAt(lastIndex) === "x") {
-            screenText.textContent = currentNumber.slice(0, -1);
             operatorPressed = false;//undoes storing of operator
+    }
+    screenText.textContent = currentNumber.slice(0, -1);
+    if (screenText.textContent === "") {
+        screenText.textContent = "0";
     }
 })
 
