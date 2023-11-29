@@ -87,7 +87,15 @@ button {
 
 .operation {
     /*background-color: rgb(212, 204, 196);*/
-    background-color:rgb(251, 201, 140);
+    background-color:rgb(248, 185, 108);
+}
+
+.operation:hover {
+    background-color: rgb(244, 194, 132);
+}
+
+.operation:active {
+    background-color: hsl(33, 93%, 62%)
 }
 
 #zeroButton {
