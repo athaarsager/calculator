@@ -8,6 +8,18 @@ let clearText = false;
 const screenText = document.querySelector("#screenText");
 //14 max character count without decimal
 
+document.addEventListener("keypress", (e) => {
+    debugger;
+    let input = e.key;
+    if (input !== "backspace" && input !== "/" && input !== "x" && input !== "-" &&
+        input !== "+" && input !== "=" && input !== "." && Number(input) === NaN) {//note Number(spacebar) === 0.
+        return;
+    } else {
+        screenText.textContent += input;//e.key is always a string
+        console.log(Number(input));//this is outputting correctly...
+    }
+})
+
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
     screenText.textContent = "0";
@@ -25,7 +37,7 @@ backspace.addEventListener("click", () => {
     let lastIndex = currentNumber.length - 1;
     if (currentNumber.charAt(lastIndex) === "+" || currentNumber.charAt(lastIndex) === "-" ||
         currentNumber.charAt(lastIndex) === "/" || currentNumber.charAt(lastIndex) === "x") {
-            operatorPressed = false;//undoes storing of operator
+        operatorPressed = false;//undoes storing of operator
     }
     screenText.textContent = currentNumber.slice(0, -1);
     if (screenText.textContent === "") {
