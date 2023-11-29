@@ -8,6 +8,32 @@ let clearText = false;
 const screenText = document.querySelector("#screenText");
 //14 max character count without decimal
 
+const clearButton = document.querySelector("#clearButton");
+clearButton.addEventListener("click", () => {
+    screenText.textContent = "0";
+    firstNumber = 0;
+    secondNumber = 0;
+    operatorPressed = false;
+    newNumPressed = false;
+    operationDone = false;
+    clearText = false;
+});
+
+const backspace = document.querySelector("#backspace");
+
+
+const signButton = document.querySelector("#signButton");
+signButton.addEventListener("click", () => {
+    let negative = "-";
+    if (screenText.textContent.charAt(0) === "-") {
+        screenText.textContent = screenText.textContent.substring(1);
+    } else if (screenText.textContent === "0") {
+        screenText.textContent = negative;
+    } else {
+        screenText.textContent = negative.concat(screenText.textContent);
+    }
+});
+
 let numberButtons = document.querySelectorAll(".numberButton");
 numberButtons = Array.from(numberButtons);
 
@@ -33,29 +59,6 @@ for (const numberButton of numberButtons) {
         }
     });
 }
-
-const signButton = document.querySelector("#signButton");
-signButton.addEventListener("click", () => {
-    let negative = "-";
-    if (screenText.textContent.charAt(0) === "-") {
-        screenText.textContent = screenText.textContent.substring(1);
-    } else if (screenText.textContent === "0") {
-        screenText.textContent = negative;
-    } else {
-        screenText.textContent = negative.concat(screenText.textContent);
-    }
-});
-
-const clearButton = document.querySelector("#clearButton");
-clearButton.addEventListener("click", () => {
-    screenText.textContent = "0";
-    firstNumber = 0;
-    secondNumber = 0;
-    operatorPressed = false;
-    newNumPressed = false;
-    operationDone = false;
-    clearText = false;
-});
 
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", storeOperation);
