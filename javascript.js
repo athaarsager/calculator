@@ -44,16 +44,16 @@ clearButton.addEventListener("click", () => {
 });
 
 const plusButton = document.querySelector("#plusButton");
-plusButton.addEventListener("click", beginOperation);
+plusButton.addEventListener("click", storeOperation);
 
 const minusButton = document.querySelector("#minusButton");
-minusButton.addEventListener("click", beginOperation);
+minusButton.addEventListener("click", storeOperation);
 
 const timesButton = document.querySelector("#timesButton");
-timesButton.addEventListener("click", beginOperation);
+timesButton.addEventListener("click", storeOperation);
 
 const divideButton = document.querySelector("#divideButton");
-divideButton.addEventListener("click", beginOperation);
+divideButton.addEventListener("click", storeOperation);
 
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
@@ -129,7 +129,7 @@ function divideNumbers(num1, num2) {
     }
 }
 
-function beginOperation(e) {
+function storeOperation(e) {
     if (operatorPressed && newNumPressed === false) {
         screenText.textContent = `${firstNumber}${e.target.textContent}`;
         return;
