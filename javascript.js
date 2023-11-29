@@ -20,7 +20,15 @@ clearButton.addEventListener("click", () => {
 });
 
 const backspace = document.querySelector("#backspace");
-
+backspace.addEventListener("click", () => {
+    let currentNumber = screenText.textContent
+    let lastIndex = currentNumber.length - 1;
+    if (currentNumber.charAt(lastIndex) === "+" || currentNumber.charAt(lastIndex) === "-" ||
+        currentNumber.charAt(lastIndex) === "/" || currentNumber.charAt(lastIndex) === "x") {
+            screenText.textContent = currentNumber.slice(0, -1);
+            operatorPressed = false;//undoes storing of operator
+    }
+})
 
 const signButton = document.querySelector("#signButton");
 signButton.addEventListener("click", () => {
