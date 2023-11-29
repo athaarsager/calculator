@@ -52,6 +52,9 @@ minusButton.addEventListener("click", beginOperation);
 const timesButton = document.querySelector("#timesButton");
 timesButton.addEventListener("click", beginOperation);
 
+const divideButton = document.querySelector("#divideButton");
+divideButton.addEventListener("click", beginOperation);
+
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
     if (operatorPressed === true && newNumPressed === false) {
@@ -86,8 +89,11 @@ function addNumbers(num1, num2) {
 }
 function subtractNumbers(num1, num2) {
     let result = num1 - num2;
-    if (result.toString().length > 13) {
+    if (result.toString().length > 13 && result < 9999999999999) {
         result = roundNumber(result, (13 - Math.floor(result).toString().length));
+        return result;
+    } else if (result > 9999999999999) {
+        result = result.toExponential(8)//this is the max that sits comfortably right now
         return result;
     } else {
         return result;
@@ -108,10 +114,17 @@ function multiplyNumbers(num1, num2) {
 }
 
 function divideNumbers(num1, num2) {
+    let result = num1 / num2;
     if (num2 === 0) {
-        return "INAPRIOPRIATE!"
+        return "Don't Even Try"
+    } else if (result.toString().length > 13 && result < 9999999999999) {
+        result = roundNumber(result, (13 - Math.floor(result).toString().length));
+        return result;
+    } else if (result > 9999999999999) {
+        result = result.toExponential(8)//this is the max that sits comfortably right now
+        return result;
     } else {
-        return num1 / num2;
+        return result;
     }
 }
 
