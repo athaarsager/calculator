@@ -62,11 +62,12 @@ equalsButton.addEventListener("click", () => {
         operatorPressed = false;
         return;
     }
-    secondNumber = parseFloat(screenText.textContent);
+    secondNumber = parseFloat(screenText.textContent);//this is only spot that checks for newNumPressed to be true
     operate(operator, firstNumber, secondNumber)
-
-
 });
+
+//running into glitch if = pressed before operator
+//running into glitch if operator pressed a second (and third?) time without hitting equals
 
 function roundNumber(value, decimals) {
     return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
@@ -129,10 +130,15 @@ function divideNumbers(num1, num2) {
 }
 
 function beginOperation(e) {
-    if (operatorPressed) {
+    if (operatorPressed && newNumPressed === false) {
+        screenText.textContent = `${firstNumber}${e.target.textContent}`;
+        return;
+        //This ensures that number does not change if operator hit repeatedly
+        //after just one number
+    } else if (operatorPressed) {
         secondNumber = parseFloat(screenText.textContent);
         operate(operator, firstNumber, secondNumber);
-    }
+    }//allows operation with string of operators and never pressing equals
     screenText.textContent += e.target.textContent;
     firstNumber = parseFloat(screenText.textContent);
     operator = e.target.textContent;
