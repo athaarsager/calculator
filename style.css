@@ -77,19 +77,19 @@ button {
     margin: 5px;
 }
 
-button:hover {
+.numberButton:hover {
     background-color: hsl(203.07692307692307, 30.516431924882635%, 63.235294117647065%);
 }
 
-button:active {
+.numberButton:active {
     background-color: hsl(203.07692307692307, 30.516431924882635%, 48.235294117647065%);
 }
 
-/*#clearButton {
-    width: calc(var(--buttonWidth) * 2 + 10px);
-    does not work with all numbers having units and does not work with no numbers having units
-} */
+.operation {
+    /*background-color: rgb(212, 204, 196);*/
+    background-color:rgb(251, 201, 140);
+}
 
-#equalsButton {
+#zeroButton {
     width: calc(var(--buttonWidth) * 2 + 10px);
 }

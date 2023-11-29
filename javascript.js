@@ -31,7 +31,7 @@ backspace.addEventListener("click", () => {
     if (screenText.textContent === "") {
         screenText.textContent = "0";
     }
-})
+});
 
 const signButton = document.querySelector("#signButton");
 signButton.addEventListener("click", () => {
