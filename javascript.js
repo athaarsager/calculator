@@ -49,6 +49,9 @@ plusButton.addEventListener("click", beginOperation);
 const minusButton = document.querySelector("#minusButton");
 minusButton.addEventListener("click", beginOperation);
 
+const timesButton = document.querySelector("#timesButton");
+timesButton.addEventListener("click", beginOperation);
+
 const equalsButton = document.querySelector("#equalsButton");
 equalsButton.addEventListener("click", () => {
     if (operatorPressed === true && newNumPressed === false) {
