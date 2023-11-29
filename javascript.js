@@ -34,6 +34,16 @@ for (const numberButton of numberButtons) {
     });
 }
 
+const signButton = document.querySelector("#signButton");
+signButton.addEventListener("click", () => {
+    let negative = "-";
+    if (screenText.textContent.charAt(0) === "-") {
+        screenText.textContent = screenText.textContent.substring(1);
+    } else {
+        screenText.textContent = negative.concat(screenText.textContent);
+    }
+})
+
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
     screenText.textContent = "0";
@@ -64,7 +74,7 @@ equalsButton.addEventListener("click", () => {
         operatorPressed = false;
         return;
         //this prevents the calculator from operating if only one number has been pressed
-    } else if(operatorPressed === false) {
+    } else if (operatorPressed === false) {
         return;
     }//this prevents the calculator from operating if one number and one operator was pressed and equals hit twice
     secondNumber = parseFloat(screenText.textContent);//this is only spot that checks for newNumPressed to be true
