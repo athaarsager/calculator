@@ -69,7 +69,7 @@ body {
 }
 
 button {
-    background-color: rgb(116, 156, 181);
+    background-color: hsl(203, 31%, 58%);
     border: 1px solid black;
     height: auto;
     width: var(--buttonWidth);
@@ -85,17 +85,28 @@ button {
     background-color: hsl(203.07692307692307, 30.516431924882635%, 48.235294117647065%);
 }
 
+.otherButton {
+    background-color: hsl(205, 75%, 76%);
+}
+
+.otherButton:hover {
+    background-color: hsl(205, 75%, 81%);
+}
+
+.otherButton:active {
+    background-color: hsl(205, 75%, 66%);
+}
+
 .operation {
-    /*background-color: rgb(212, 204, 196);*/
-    background-color:rgb(248, 185, 108);
+    background-color:hsl(33, 91%, 70%);
 }
 
 .operation:hover {
-    background-color: rgb(244, 194, 132);
+    background-color: hsl(33, 91%, 75%);
 }
 
 .operation:active {
-    background-color: hsl(33, 93%, 62%)
+    background-color: hsl(33, 91%, 60%);
 }
 
 #zeroButton {
