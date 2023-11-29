@@ -63,14 +63,11 @@ equalsButton.addEventListener("click", () => {
         return;
         //this prevents the calculator from operating if only one number has been pressed
     } else if(operatorPressed === false) {
-        screenText.textContent = firstNumber;
         return;
     }//this prevents the calculator from operating if one number and one operator was pressed and equals hit twice
     secondNumber = parseFloat(screenText.textContent);//this is only spot that checks for newNumPressed to be true
     operate(operator, firstNumber, secondNumber)
 });
-
-//now if equals pressed with one number on screen, defaults to zero
 
 function roundNumber(value, decimals) {
     return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
