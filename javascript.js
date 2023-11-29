@@ -19,6 +19,8 @@ for (const numberButton of numberButtons) {
             if (screenText.textContent === ".") {
                 screenText.textContent = "0.";
             }
+        } else if (screenText.textContent.includes(".") && numberButton.textContent === ".") {
+            return;//removes ability to have multiple decimals
         } else if (clearText) {
             screenText.textContent = numberButton.textContent;
             newNumPressed = true;
