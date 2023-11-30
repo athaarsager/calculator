@@ -9,16 +9,18 @@ const screenText = document.querySelector("#screenText");
 //14 max character count without decimal
 
 document.addEventListener("keypress", (e) => {
-    debugger;
     let input = e.key;
-    if (input !== "backspace" && input !== "/" && input !== "x" && input !== "-" &&
-        input !== "+" && input !== "=" && input !== "." && Number(input) === NaN) {//note Number(spacebar) === 0.
+    if (Number.isNaN(parseFloat(input)) && input !== "backspace" && input !== "/" && input !== "x" && input !== "-" &&
+        input !== "+" && input !== "=" && input !== ".") {
+        //Have to use parseInt before Number.isNan because e.key is always a string
+        //and Number.isNan has to evaluate an actual number to work correctly
+        //isNan alone does not work for spacebar because it auto-converts to 0
         return;
     } else {
         screenText.textContent += input;//e.key is always a string
-        console.log(Number(input));//this is outputting correctly...
+        console.log(input);
     }
-})
+});
 
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
