@@ -16,10 +16,27 @@ document.addEventListener("keypress", (e) => {
         //and Number.isNan has to evaluate an actual number to work correctly
         //isNan alone does not work for spacebar because it auto-converts to 0
         return;
-    } else {
-        screenText.textContent += input;//e.key is always a string
-        console.log(input);
-    }
+    } else if(Number.isNaN(parseFloat(input) === false) || input === ".") {
+        //screenText.textContent += input;//e.key is always a string
+        if (screenText.textContent === "0") {
+            screenText.textContent = input;
+            if (screenText.textContent === ".") {
+                screenText.textContent = "0.";
+            }
+        } else if (screenText.textContent.includes(".") && input === ".") {
+            return;//removes ability to have multiple decimals
+        } else if (clearText) {
+            screenText.textContent = input;
+            newNumPressed = true;
+            clearText = false;
+        } else {
+            if (screenText.textContent.length === 13) {
+                return;
+            }
+            screenText.textContent += input;
+        }
+    }//copied from numberButton function...only decimal key works right now, so change first part
+    //of conditional expression
 });
 
 const clearButton = document.querySelector("#clearButton");
