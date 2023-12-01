@@ -42,7 +42,20 @@ document.addEventListener("keydown", (e) => {
         newNumPressed = false;
         operationDone = false;
         clearText = false;
-    }//spacebar, code is same as clearButton code...note to self: add note in html to let user know spacebar = clear
+        //spacebar, code is same as clearButton code...note to self: add note in html to let user know spacebar = clear
+    } else if (input === "Backspace") {
+        let currentNumber = screenText.textContent
+        let lastIndex = currentNumber.length - 1;
+        if (currentNumber.charAt(lastIndex) === "+" || currentNumber.charAt(lastIndex) === "-" ||
+            currentNumber.charAt(lastIndex) === "/" || currentNumber.charAt(lastIndex) === "x") {
+            operatorPressed = false;//undoes storing of operator
+        }
+        screenText.textContent = currentNumber.slice(0, -1);
+        if (screenText.textContent === "") {
+            screenText.textContent = "0";
+        }
+        //backspace, same as backspace button code...may need to test this further for glitches once done.
+    }
 });
 
 const clearButton = document.querySelector("#clearButton");
