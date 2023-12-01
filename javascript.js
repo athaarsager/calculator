@@ -19,6 +19,12 @@ document.addEventListener("keydown", (e) => {
     } else if (Number.isNaN(parseFloat(input)) === false || input === ".") {
         if (screenText.textContent === "0") {
             screenText.textContent = input;
+            clearText = false;
+            //need this clearText = false here, otherwise numbers will overwrite each other
+            //if backspace brings number to 0 after operation
+            //This would evaluate upon pressing a new number, but clearText would be true
+            //so the clearText block below would evaluate, overwriting the new number
+            //before it gets set to false again
             if (screenText.textContent === ".") {
                 screenText.textContent = "0.";
             }
@@ -27,7 +33,7 @@ document.addEventListener("keydown", (e) => {
         } else if (clearText) {
             screenText.textContent = input;
             newNumPressed = true;
-            clearText = false;
+            clearText = false;//I think this is where the backspace glitch is ocurring
         } else {
             if (screenText.textContent.length === 13) {
                 return;
@@ -56,6 +62,7 @@ document.addEventListener("keydown", (e) => {
         }
         //backspace, same as backspace button code...may need to test this further for glitches once done.
         //glitch here I think where sometimes rejects numbers longer than one digit.
+        //Present in calculator buttons too
     } else if (input === "+") {
         storeOperationForKey(input);
     } else if (input === "=" || input === "Enter") {
@@ -117,6 +124,7 @@ for (const numberButton of numberButtons) {
     numberButton.addEventListener("click", () => {
         if (screenText.textContent === "0") {
             screenText.textContent = numberButton.textContent;
+            clearText = false;
             if (screenText.textContent === ".") {
                 screenText.textContent = "0.";
             }
