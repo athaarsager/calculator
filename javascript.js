@@ -11,7 +11,7 @@ const screenText = document.querySelector("#screenText");
 document.addEventListener("keydown", (e) => {
     let input = e.key;
     if (Number.isNaN(parseFloat(input)) && input !== "Backspace" && input !== "/" && input !== "*" && input !== " " &&
-        input !== "x" && input !== "-" && input !== "+" && input !== "=" && input !== "enter" && input !== ".") {
+        input !== "x" && input !== "-" && input !== "+" && input !== "=" && input !== "Enter" && input !== ".") {
         //Have to use parseInt before Number.isNan because e.key is always a string
         //and Number.isNan has to evaluate an actual number to work correctly
         //isNan alone does not work for spacebar because it auto-converts to 0
@@ -55,8 +55,20 @@ document.addEventListener("keydown", (e) => {
             screenText.textContent = "0";
         }
         //backspace, same as backspace button code...may need to test this further for glitches once done.
-    } else if(input === "+") {
+        //glitch here I think where sometimes rejects numbers longer than one digit.
+    } else if (input === "+") {
         storeOperationForKey(input);
+    } else if (input === "=" || input === "Enter") {
+        if (operatorPressed === true && newNumPressed === false) {
+            screenText.textContent = firstNumber;
+            operatorPressed = false;
+            return;
+            //this prevents the calculator from operating if only one number has been pressed
+        } else if (operatorPressed === false) {
+            return;
+        }//this prevents the calculator from operating if one number and one operator was pressed and equals hit twice
+        secondNumber = parseFloat(screenText.textContent);//this is only spot that checks for newNumPressed to be true
+        operate(operator, firstNumber, secondNumber)
     }
 });
 
