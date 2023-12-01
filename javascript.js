@@ -55,6 +55,8 @@ document.addEventListener("keydown", (e) => {
             screenText.textContent = "0";
         }
         //backspace, same as backspace button code...may need to test this further for glitches once done.
+    } else if(input === "+") {
+        storeOperationForKey(input);
     }
 });
 
@@ -220,6 +222,23 @@ function storeOperation(e) {
     screenText.textContent += e.target.textContent;
     firstNumber = parseFloat(screenText.textContent);
     operator = e.target.textContent;
+    operatorPressed = true;
+    clearText = true;
+}
+
+function storeOperationForKey(keyPressed) {
+    if (operatorPressed && newNumPressed === false) {
+        screenText.textContent = `${firstNumber}${keyPressed}`;
+        return;
+        //This ensures that number does not change if operator hit repeatedly
+        //after just one number
+    } else if (operatorPressed) {
+        secondNumber = parseFloat(screenText.textContent);
+        operate(operator, firstNumber, secondNumber);
+    }//allows operation with string of operators and never pressing equals
+    screenText.textContent += keyPressed;
+    firstNumber = parseFloat(screenText.textContent);
+    operator = keyPressed;
     operatorPressed = true;
     clearText = true;
 }
