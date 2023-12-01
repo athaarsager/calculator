@@ -33,7 +33,7 @@ document.addEventListener("keydown", (e) => {
                 return;
             }
             screenText.textContent += input;
-        }
+        }//numberButtons on keyboard, code is same as numberButton code
     } else if (input === " ") {
         screenText.textContent = "0";
         firstNumber = 0;
@@ -42,7 +42,7 @@ document.addEventListener("keydown", (e) => {
         newNumPressed = false;
         operationDone = false;
         clearText = false;
-    }
+    }//spacebar, code is same as clearButton code...note to self: add note in html to let user know spacebar = clear
 });
 
 const clearButton = document.querySelector("#clearButton");
