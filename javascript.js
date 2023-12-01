@@ -34,8 +34,7 @@ document.addEventListener("keypress", (e) => {
             }
             screenText.textContent += input;
         }
-    }//copied from numberButton function...only decimal key works right now, so change first part
-    //of conditional expression
+    }
 });
 
 const clearButton = document.querySelector("#clearButton");
