@@ -10,8 +10,8 @@ const screenText = document.querySelector("#screenText");
 
 document.addEventListener("keypress", (e) => {
     let input = e.key;
-    if (Number.isNaN(parseFloat(input)) && input !== "backspace" && input !== "/" &&
-        input !== "x" && input !== "-" && input !== "+" && input !== "=" && input !== ".") {
+    if (Number.isNaN(parseFloat(input)) && input !== "backspace" && input !== "/" && input !== "*" &&
+        input !== "x" && input !== "-" && input !== "+" && input !== "=" && input !== "enter" && input !== ".") {
         //Have to use parseInt before Number.isNan because e.key is always a string
         //and Number.isNan has to evaluate an actual number to work correctly
         //isNan alone does not work for spacebar because it auto-converts to 0
