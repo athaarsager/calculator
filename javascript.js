@@ -33,7 +33,7 @@ document.addEventListener("keydown", (e) => {
         } else if (clearText) {
             screenText.textContent = input;
             newNumPressed = true;
-            clearText = false;//I think this is where the backspace glitch is ocurring
+            clearText = false;
         } else {
             if (screenText.textContent.length === 13) {
                 return;
@@ -60,9 +60,6 @@ document.addEventListener("keydown", (e) => {
         if (screenText.textContent === "") {
             screenText.textContent = "0";
         }
-        //backspace, same as backspace button code...may need to test this further for glitches once done.
-        //glitch here I think where sometimes rejects numbers longer than one digit.
-        //Present in calculator buttons too
     } else if (input === "+") {
         storeOperationForKey(input);
     } else if (input === "=" || input === "Enter") {
