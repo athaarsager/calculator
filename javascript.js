@@ -16,8 +16,7 @@ document.addEventListener("keypress", (e) => {
         //and Number.isNan has to evaluate an actual number to work correctly
         //isNan alone does not work for spacebar because it auto-converts to 0
         return;
-    } else if(Number.isNaN(parseFloat(input) === false) || input === ".") {
-        //screenText.textContent += input;//e.key is always a string
+    } else if(Number.isNaN(parseFloat(input)) === false || input === ".") {
         if (screenText.textContent === "0") {
             screenText.textContent = input;
             if (screenText.textContent === ".") {
