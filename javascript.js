@@ -62,6 +62,10 @@ document.addEventListener("keydown", (e) => {
         }
     } else if (input === "+") {
         storeOperationForKey(input);
+    } else if (input === "-") {
+        storeOperationForKey(input);
+    } else if (input === "x" || input === "*") {
+        storeOperationForKey(input);
     } else if (input === "=" || input === "Enter") {
         if (operatorPressed === true && newNumPressed === false) {
             screenText.textContent = firstNumber;
@@ -252,8 +256,13 @@ function storeOperationForKey(keyPressed) {
     } else if (operatorPressed) {
         secondNumber = parseFloat(screenText.textContent);
         operate(operator, firstNumber, secondNumber);
-    }//allows operation with string of operators and never pressing equals
-    screenText.textContent += keyPressed;
+    } //allows operation with string of operators and never pressing equals
+    
+    if (keyPressed === "*") {
+        screenText.textContent += "x";
+    } else {
+        screenText.textContent += keyPressed;
+    }
     firstNumber = parseFloat(screenText.textContent);
     operator = keyPressed;
     operatorPressed = true;
@@ -271,6 +280,8 @@ function operate(operation, firstNum, secondNum) {
         case "-": screenText.textContent = subtractNumbers(firstNum, secondNum);
             break;
         case "x": screenText.textContent = multiplyNumbers(firstNum, secondNum);
+            break;
+        case "*": screenText.textContent = multiplyNumbers(firstNum, secondNum);
             break;
         case "/": screenText.textContent = divideNumbers(firstNum, secondNum);
     }
