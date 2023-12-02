@@ -66,6 +66,9 @@ document.addEventListener("keydown", (e) => {
         storeOperationForKey(input);
     } else if (input === "x" || input === "*") {
         storeOperationForKey(input);
+    } else if (input === "/") {
+        e.preventDefault()
+        storeOperationForKey(input);
     } else if (input === "=" || input === "Enter") {
         if (operatorPressed === true && newNumPressed === false) {
             screenText.textContent = firstNumber;
@@ -257,7 +260,7 @@ function storeOperationForKey(keyPressed) {
         secondNumber = parseFloat(screenText.textContent);
         operate(operator, firstNumber, secondNumber);
     } //allows operation with string of operators and never pressing equals
-    
+
     if (keyPressed === "*") {
         screenText.textContent += "x";
     } else {
