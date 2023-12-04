@@ -18,6 +18,7 @@ body {
 
 #calculator {
     border: 1px solid black;
+    border-radius: 10px;
     background-color: rgb(151, 182, 201);
     height: var(--calculatorHeight);
     width: var(--calculatorWidth);
@@ -33,6 +34,7 @@ body {
 
 #screen {
     background-color: black;
+    border-radius: 10px;
     height: var(--screenHeight);
     width: var(--screenWidth);
     display: flex;
@@ -70,7 +72,8 @@ body {
 
 button {
     background-color: hsl(203, 31%, 58%);
-    border: 1px solid black;
+    border: none;/*This eliminates awkward border created by border-radius*/
+    border-radius: 25px;
     height: auto;
     width: var(--buttonWidth);
     /* row width / number of buttons in row*/
