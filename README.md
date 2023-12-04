@@ -1,1 +1,1 @@
-# calculator
+This was a fun project testing my acquired javascript and css skills learned through the Odin Project and my first few weeks at coding bootcamp! It demonstrates an understanding of core javascript functionality and basic css and html. This project allowed me to learn more about js event listeners through adding keyboard controls and gave me more practice with css variables and the calc function.
