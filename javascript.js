@@ -71,9 +71,10 @@ document.addEventListener("keydown", (e) => {
     } else if (input === "x" || input === "*") {
         storeOperationForKey(input);
     } else if (input === "/") {
-        e.preventDefault()
+        e.preventDefault();
         storeOperationForKey(input);
     } else if (input === "=" || input === "Enter") {
+        e.preventDefault();
         if (operatorPressed === true && newNumPressed === false) {
             screenText.textContent = firstNumber;
             operatorPressed = false;
