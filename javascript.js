@@ -35,7 +35,7 @@ document.addEventListener("keydown", (e) => {
             newNumPressed = true;
             clearText = false;
         } else {
-            if (screenText.textContent.length === 13) {
+            if (screenText.textContent.length === 12) {
                 return;
             }
             screenText.textContent += input;
@@ -145,7 +145,7 @@ for (const numberButton of numberButtons) {
             newNumPressed = true;
             clearText = false;
         } else {
-            if (screenText.textContent.length === 13) {
+            if (screenText.textContent.length === 12) {
                 return;
             }
             screenText.textContent += numberButton.textContent;
@@ -188,11 +188,11 @@ function roundNumber(value, decimals) {
 
 function addNumbers(num1, num2) {
     let result = num1 + num2;
-    if (result.toString().length > 13 && result < 9999999999999) {
-        result = roundNumber(result, (13 - Math.floor(result).toString().length));
+    if (result.toString().length > 12 && result < 9999999999999) {
+        result = roundNumber(result, (12 - Math.floor(result).toString().length));
         return result;
     } else if (result > 9999999999999) {
-        result = result.toExponential(8)//this is the max that sits comfortably right now
+        result = result.toExponential(7)//this is the max that sits comfortably right now
         return result;
     } else {
         return result;
@@ -200,11 +200,11 @@ function addNumbers(num1, num2) {
 }
 function subtractNumbers(num1, num2) {
     let result = num1 - num2;
-    if (result.toString().length > 13 && result < 9999999999999) {
-        result = roundNumber(result, (13 - Math.floor(result).toString().length));
+    if (result.toString().length > 12 && result < 9999999999999) {
+        result = roundNumber(result, (12 - Math.floor(result).toString().length));
         return result;
     } else if (result > 9999999999999) {
-        result = result.toExponential(8)//this is the max that sits comfortably right now
+        result = result.toExponential(7)//this is the max that sits comfortably right now
         return result;
     } else {
         return result;
@@ -213,11 +213,11 @@ function subtractNumbers(num1, num2) {
 
 function multiplyNumbers(num1, num2) {
     let result = num1 * num2;
-    if (result.toString().length > 13 && result < 9999999999999) {
-        result = roundNumber(result, (13 - Math.floor(result).toString().length));
+    if (result.toString().length > 12 && result < 9999999999999) {
+        result = roundNumber(result, (12 - Math.floor(result).toString().length));
         return result;
     } else if (result > 9999999999999) {
-        result = result.toExponential(8)//this is the max that sits comfortably right now
+        result = result.toExponential(7)//this is the max that sits comfortably right now
         return result;
     } else {
         return result;
@@ -228,11 +228,11 @@ function divideNumbers(num1, num2) {
     let result = num1 / num2;
     if (num2 === 0) {
         return "Don't Even Try"
-    } else if (result.toString().length > 13 && result < 9999999999999) {
-        result = roundNumber(result, (13 - Math.floor(result).toString().length));
+    } else if (result.toString().length > 12 && result < 9999999999999) {
+        result = roundNumber(result, (12 - Math.floor(result).toString().length));
         return result;
     } else if (result > 9999999999999) {
-        result = result.toExponential(8)//this is the max that sits comfortably right now
+        result = result.toExponential(7)//this is the max that sits comfortably right now
         return result;
     } else {
         return result;
