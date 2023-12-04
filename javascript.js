@@ -63,7 +63,11 @@ document.addEventListener("keydown", (e) => {
     } else if (input === "+") {
         storeOperationForKey(input);
     } else if (input === "-") {
-        storeOperationForKey(input);
+        if (screenText.textContent === "0") {
+            screenText.textContent = input;
+        } else {
+            storeOperationForKey(input);
+        }
     } else if (input === "x" || input === "*") {
         storeOperationForKey(input);
     } else if (input === "/") {
