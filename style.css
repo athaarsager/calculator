@@ -3,7 +3,7 @@
     /*declaring css variables*/
     --calculatorWidth: 550px;
     /*variables do not have to be declared in root*/
-    --screenHeight: 250px;
+    --screenHeight: 180px;
     /*but declaring in root ensures they can be accessed anywhere*/
     --screenWidth: 530px;
     --buttonContainerHeight: calc(var(--calculatorHeight) - var(--screenHeight) - 30px);
@@ -74,6 +74,7 @@ button {
     background-color: hsl(203, 31%, 58%);
     border: none;/*This eliminates awkward border created by border-radius*/
     border-radius: 25px;
+    font-size: 28px;
     height: auto;
     width: var(--buttonWidth);
     /* row width / number of buttons in row*/
