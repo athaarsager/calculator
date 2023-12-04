@@ -13,7 +13,11 @@
 }
 
 body {
-    background-color: rgba(129, 111, 201, 0.309)
+    background-color: rgba(129, 111, 201, 0.309);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #calculator {
@@ -22,14 +26,7 @@ body {
     background-color: rgb(151, 182, 201);
     height: var(--calculatorHeight);
     width: var(--calculatorWidth);
-    position: absolute;
-    /* This section of code centers item vertically on page. */
-    top: 0;
-    /*Only works if element has set height*/
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    margin-top: 25px;
 }
 
 #screen {
