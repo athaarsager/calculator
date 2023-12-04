@@ -86,6 +86,7 @@ document.addEventListener("keydown", (e) => {
         secondNumber = parseFloat(screenText.textContent);//this is only spot that checks for newNumPressed to be true
         operate(operator, firstNumber, secondNumber)
     }
+    e.target.blur();//This eliminates event targetting (The last-clicked button being highlighted when a key is pressed)
 });
 
 const clearButton = document.querySelector("#clearButton");
