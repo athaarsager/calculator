@@ -6,7 +6,7 @@ let newNumPressed = false;
 let clearText = false;
 
 const screenText = document.querySelector("#screenText");
-//14 max character count without decimal
+//12 max character count without decimal
 
 document.addEventListener("keydown", (e) => {
     let input = e.key;
